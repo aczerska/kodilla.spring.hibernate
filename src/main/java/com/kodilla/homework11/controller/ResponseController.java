@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ResponseController {
 
-    @RequestMapping(value = "/homework", method = RequestMethod.GET)
+    @GetMapping(value = "/homework")
     public GetResponse m1(@RequestParam(value = "name",
             defaultValue = "Bot") String name) {
         GetResponse response = new GetResponse();
@@ -16,7 +16,7 @@ public class ResponseController {
         return response;
     }
 
-    @RequestMapping(value = "/homework", method = RequestMethod.POST)
+    @PostMapping(value = "/homework")
     public PostResponse m2(@RequestBody PostRequest inputPayload) {
         PostResponse response = new PostResponse();
         response.setId(inputPayload.getId());
@@ -25,7 +25,7 @@ public class ResponseController {
         return response;
     }
 
-    @RequestMapping(value = "/homework", method = RequestMethod.PUT)
+    @PutMapping(value = "/homework")
     public PutResponse m3(@RequestBody PutRequest inputPayload) {
         PutResponse response = new PutResponse();
         response.setId(inputPayload.getId() * 2);
